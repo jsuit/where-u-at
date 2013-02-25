@@ -34,6 +34,20 @@
             android:layout_height="wrap_content"
             android:text="@string/button_find_me" />
 
+        <Button
+            android:id="@+id/location_list_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="@string/button_location_list" />
+        
+        <Button
+            android:id="@+id/image_gridview_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="@string/button_image_gridview" />
+
     </LinearLayout>
 
 </LinearLayout>

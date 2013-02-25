@@ -37,6 +37,15 @@
             android:label="Result"
             android:name=".ResultActivity" >
         </activity>
+        <activity 
+            android:label="ListExample"
+            android:name=".ListExampleActivity" >
+        </activity>
+        <activity 
+            android:label="GridView"
+            android:name=".GridViewActivity" >
+        </activity>
+        
     </application>
 
 </manifest>
