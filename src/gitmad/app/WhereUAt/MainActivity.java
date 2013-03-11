@@ -33,14 +33,20 @@ public class MainActivity extends Activity implements OnClickListener {
                 .getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         sensorManager.registerListener(new ShakeEventSensorListener(this, 3), accelerometer,
                 SensorManager.SENSOR_DELAY_FASTEST);
+//        sensorManager.registerListener(new DropEventSensorListener(this), accelerometer,
+//                SensorManager.SENSOR_DELAY_FASTEST);
         
         IntentFilter filter = new IntentFilter();
         filter.addAction(ShakeEventSensorListener.SHAKE_DETECT);
+        filter.addAction(DropEventSensorListener.DROP_DETECT);
         this.registerReceiver(new BroadcastReceiver() {
 
             @Override
             public void onReceive(Context context, Intent intent) {
                 if (intent.getAction().equals(ShakeEventSensorListener.SHAKE_DETECT)) {
+                    onShakeEvent();
+                }
+                if (intent.getAction().equals(DropEventSensorListener.DROP_DETECT)) {
                     onShakeEvent();
                 }
                 //otherwise do nothing
