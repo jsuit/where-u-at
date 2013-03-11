@@ -65,6 +65,7 @@ public class ShakeEventSensorListener implements SensorEventListener {
     }
 
     /**
+     * Start the gesture timeout.  This is to reset the shake counter after some period of inactivity.
      * 
      */
     private void startGestureTimeout() {
