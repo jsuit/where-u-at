@@ -23,10 +23,13 @@ public class ShakeEventSensorListener implements SensorEventListener {
     private boolean peakFound = false;
     private boolean chill = false; // used to stop sounds when looking at
     private Context context;
+
+    private int numShakes;
                                    // instructions
 
-    public ShakeEventSensorListener(Context context) {
+    public ShakeEventSensorListener(Context context, int numShakes) {
         this.context = context;
+        this.numShakes = numShakes;
     }
 
     @Override
@@ -44,7 +47,7 @@ public class ShakeEventSensorListener implements SensorEventListener {
 //        lastz = linear_acceleration[2];
 
         // Isolate the force of gravity with the low-pass filter.
-        gravity = gravity.scale(alpha).add(gravity.scale(1 - alpha));
+        gravity = gravity.scale(alpha).add(evals.scale(1 - alpha));
 //        gravity[0] = alpha * gravity[0] + (1 - alpha) * event.values[0];
 //        gravity[1] = alpha * gravity[1] + (1 - alpha) * event.values[1];
 //        gravity[2] = alpha * gravity[2] + (1 - alpha) * event.values[2];
@@ -72,6 +75,12 @@ public class ShakeEventSensorListener implements SensorEventListener {
             if (Math.abs(last.z) > 90) {
                 broadcastShake();
             }
+//            Log.d("Last x: ", "" + last.x);
+//            Log.d("Last y: ", "" + last.y);
+//            Log.d("Last z: ", "" + last.z);
+//            Log.d("Current x: ", "" + linear_acceleration.x + " cm/s^2");
+//            Log.d("Current y: ", "" + linear_acceleration.y + " cm/s^2");
+//            Log.d("Current z: ", "" + linear_acceleration.z + " cm/s^2");
 //            peakFound = true;
 
 //        } else if (Math.abs(linear_acceleration.z) <= 5 && peakFound) {
@@ -80,12 +89,6 @@ public class ShakeEventSensorListener implements SensorEventListener {
         }
 
         // Log.d("Count", ""+count);
-        Log.d("Last x: ", "" + last.x);
-        Log.d("Last y: ", "" + last.y);
-        Log.d("Last z: ", "" + last.z);
-        Log.d("Current x: ", "" + linear_acceleration.x + " cm/s^2");
-        Log.d("Current y: ", "" + linear_acceleration.y + " cm/s^2");
-        Log.d("Current z: ", "" + linear_acceleration.z + " cm/s^2");
     }
 
     private void broadcastShake() {

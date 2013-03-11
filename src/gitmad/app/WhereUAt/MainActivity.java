@@ -1,7 +1,12 @@
 package gitmad.app.WhereUAt;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,11 +18,35 @@ public class MainActivity extends Activity implements OnClickListener {
 	
 	public final static String EXTRA_MESSAGE = "gitmad.app.WhereUAt";
 	
+    private SensorManager sensorManager;
+    private Sensor accelerometer;
+
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
     	super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        
+        // sensors to detect amount of force on phone
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        accelerometer = sensorManager
+                .getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        sensorManager.registerListener(new ShakeEventSensorListener(this, 3), accelerometer,
+                SensorManager.SENSOR_DELAY_FASTEST);
+        
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(ShakeEventSensorListener.SHAKE_DETECT);
+        this.registerReceiver(new BroadcastReceiver() {
+
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                if (intent.getAction().equals(ShakeEventSensorListener.SHAKE_DETECT)) {
+                    onShakeEvent();
+                }
+                //otherwise do nothing
+            }
+        }, filter);
+        
         View findMeButton = findViewById(R.id.find_me_button);
         findMeButton.setOnClickListener(this);
         
@@ -46,6 +75,12 @@ public class MainActivity extends Activity implements OnClickListener {
         });
     }
     
+    protected void onShakeEvent() {
+        //clear the text on a shake event
+        EditText editText = (EditText)findViewById(R.id.editText1);
+        editText.setText("");
+    }
+
     @Override
 	public void onClick(View v) {
 		Intent i = new Intent(this, ResultActivity.class); //private intent
