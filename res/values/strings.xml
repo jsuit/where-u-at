@@ -12,6 +12,7 @@
     <string name="enter_text_hint">Enter some text</string>
     <string name="button_image_gridview">Vacation Photos</string>
     <string name="button_location_list">Location List</string>
+    <string name="white">#FFFFFF</string>
     
 
 </resources>
