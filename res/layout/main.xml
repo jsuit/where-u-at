@@ -48,6 +48,12 @@
             android:layout_weight="0"
             android:text="@string/button_image_gridview" />
 
+        <Button
+            android:id="@+id/record_memo_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="@string/button_record_memo" />
     </LinearLayout>
 
 </LinearLayout>

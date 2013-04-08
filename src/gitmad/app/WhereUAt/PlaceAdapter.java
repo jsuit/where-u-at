@@ -1,5 +1,7 @@
 package gitmad.app.WhereUAt;
 
+import gitmad.app.WhereUAt.model.Place;
+
 import java.util.ArrayList;
 
 import android.app.Activity;

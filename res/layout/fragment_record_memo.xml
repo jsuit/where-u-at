@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/record_memo_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <EditText
+        android:id="@+id/location_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:ems="20" 
+        android:hint="@string/edit_location"/>
+    
+    <LinearLayout
+        android:id="@+id/record_controls"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+        android:layout_below="@+id/location_edit" 
+	    android:padding="10dip" >
+
+        <Button
+            android:id="@+id/record_button"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:text="@string/button_start_recording" />
+
+        <Button
+            android:id="@+id/play_button"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:text="@string/button_start_playing" />
+        </LinearLayout>
+
+    <ListView
+        android:id="@+id/memo_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/record_controls" />
+
+</RelativeLayout>

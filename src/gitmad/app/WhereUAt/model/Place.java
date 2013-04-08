@@ -1,4 +1,4 @@
-package gitmad.app.WhereUAt;
+package gitmad.app.WhereUAt.model;
 
 import android.graphics.Bitmap;
 

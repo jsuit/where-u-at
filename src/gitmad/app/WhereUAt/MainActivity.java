@@ -57,7 +57,7 @@ public class MainActivity extends Activity implements OnClickListener {
         findMeButton.setOnClickListener(this);
         
         //Instantiate the location list button
-        final Button locationListbutton = (Button) findViewById(R.id.location_list_button);
+        Button locationListbutton = (Button) findViewById(R.id.location_list_button);
         locationListbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
@@ -69,7 +69,7 @@ public class MainActivity extends Activity implements OnClickListener {
         });
         
         //Instantiate the gridViewButton
-        final Button gridViewButton = (Button) findViewById(R.id.image_gridview_button);
+        Button gridViewButton = (Button) findViewById(R.id.image_gridview_button);
         gridViewButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
@@ -77,6 +77,19 @@ public class MainActivity extends Activity implements OnClickListener {
         		//launch intent to start the GridViewActivity
         		Intent i = new Intent(MainActivity.this, GridViewActivity.class); //private intent
             	MainActivity.this.startActivity(i);
+            }
+        });
+        
+        Button recordMemoButton = (Button) findViewById(R.id.record_memo_button);
+        recordMemoButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // Perform action on click
+                Log.d("Demo", "Record Memo button pressed");       
+                //launch intent to start the RecordMemoActivity
+                Intent i = new Intent(MainActivity.this, RecordMemoActivity.class); //private intent
+                MainActivity.this.startActivity(i);
             }
         });
     }

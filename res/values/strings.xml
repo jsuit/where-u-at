@@ -13,6 +13,15 @@
     <string name="button_image_gridview">Vacation Photos</string>
     <string name="button_location_list">Location List</string>
     <string name="white">#FFFFFF</string>
-    
+    <string name="button_record_memo">Record Memo</string>
+    <string name="button_start_recording">Start Recording</string>
+    <string name="button_stop_recording">Stop Recording</string>
+    <string name="button_start_playing">Start Playing</string>
+    <string name="button_stop_playing">Stop Playing</string>
 
+    <string name="delete_recording_title">Delete recording?</string>
+    <string name="delete_recording">Delete recording \'%s\'?</string>
+
+    <string name="save_recording_title">Save recording?</string>
+    <string name="save_recording">Save recording for location \'%s\'?</string>
 </resources>
