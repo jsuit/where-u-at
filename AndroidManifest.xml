@@ -4,7 +4,7 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="17"/>
+    <uses-sdk android:minSdkVersion="17" android:targetSdkVersion="17"/>
 
     <permission
             android:name="gitmad.app.WhereUAt.permission.MAPS_RECEIVE"
@@ -12,6 +12,8 @@
 
     <uses-permission android:name="gitmad.app.WhereUAt.permission.MAPS_RECEIVE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
 
@@ -37,6 +39,19 @@
             android:label="Result"
             android:name=".ResultActivity" >
         </activity>
+        <activity 
+            android:label="ListExample"
+            android:name=".ListExampleActivity" >
+        </activity>
+        <activity 
+            android:label="GridView"
+            android:name=".GridViewActivity" >
+        </activity>
+        <activity 
+            android:label="Record Memo"
+            android:name=".RecordMemoActivity" >
+        </activity>
+        
     </application>
 
 </manifest>
