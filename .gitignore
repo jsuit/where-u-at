@@ -27,3 +27,4 @@ proguard/
 # File for API key
 apikey.txt
 
+lint.xml
